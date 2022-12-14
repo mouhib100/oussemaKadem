@@ -1,0 +1,9 @@
+<mat-form-field appearance="fill">
+  <mat-label>IDEquipe</mat-label>
+  <input matInput type="number" ngModel name="idEquipe" #idEquipe="ngModel">
+</mat-form-field>
+
+
+<div mat-dialog-actions [align]='"end"'>
+  <button mat-button color="primary" (click)="assignEquipe(idEquipe.value)" >Assign</button>
+</div>

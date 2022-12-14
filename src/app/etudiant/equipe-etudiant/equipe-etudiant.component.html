@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="demo-button-container">
+    <button mat-raised-button class="demo-button" (click)="openEquipeDialog()">Assign Equipe</button>
+  </div>
+
+
+<table class="table table-striped table-dark">
+  <thead>
+  <tr>
+    <th scope="col">IDEquipe</th>
+    <th scope="col">NomEquipe</th>
+    <th scope="col">Niveau</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let row of EquipesData">
+    <td>{{row.idEquipe}}</td>
+    <td>{{row.nomEquipe}}</td>
+    <td>{{row.niveau}}</td>
+  </tr>
+  </tbody>
+</table>
+
+  <div class="example-button-container">
+    <button mat-fab color="warn" aria-label="Example icon button with a home icon" [routerLink]="['/etudiant']">
+      <mat-icon>home</mat-icon>
+    </button>
+  </div>
+</div>

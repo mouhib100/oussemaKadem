@@ -1,0 +1,64 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+}
+.demo-button-container {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.example-button-container {
+  display: flex;
+  position: fixed;
+  right: 0;
+  margin: 1%;
+  justify-content: flex-end;
+}
+
+th,
+td {
+  overflow: hidden;
+  width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mat-divider {
+  margin-top: 30px;
+}
+
+.mat-progress-spinner {
+  display: flex;
+  justify-content: center;
+  margin-left: 500px;
+}
+
+.grid-container {
+  margin: 20px;
+}
+
+.SearchButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.DepartmentSearchInput {
+  width: 80%;
+}

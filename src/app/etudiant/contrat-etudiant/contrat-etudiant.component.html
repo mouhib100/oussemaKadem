@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="demo-button-container">
+    <button mat-raised-button class="demo-button" (click)="openContratDialog()">Assign Contrat</button>
+  </div>
+
+
+
+  <table class="table table-striped table-dark">
+  <thead>
+  <tr>
+    <th scope="col">IDContrat</th>
+    <th scope="col">DateDebut</th>
+    <th scope="col">DateFin</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let row of ContratsData">
+    <td>{{row.idContrat}}</td>
+    <td>{{row.dateDebutC}}</td>
+    <td>{{row.dateFinC}}</td>
+  </tr>
+  </tbody>
+</table>
+
+
+<div class="example-button-container">
+  <button mat-fab color="warn" aria-label="Example icon button with a home icon" [routerLink]="['/etudiant']">
+    <mat-icon>home</mat-icon>
+  </button>
+</div>
+</div>

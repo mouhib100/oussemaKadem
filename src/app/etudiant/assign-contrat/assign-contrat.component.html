@@ -1,0 +1,11 @@
+<form #f="ngForm">
+<mat-form-field appearance="fill">
+  <mat-label>IDContrat</mat-label>
+  <input matInput ngModel type="number" name="idContrat" #idContrat="ngModel">
+</mat-form-field>
+</form>
+
+
+<div mat-dialog-actions [align]='"end"'>
+  <button mat-button color="primary" (click)="assignContrat(idContrat.value)">Assign</button>
+</div>

@@ -1,0 +1,30 @@
+<form #f="ngForm">
+  <div class="example-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Nom</mat-label>
+    <input matInput ngModel required minlength="3" name="nom" #nom="ngModel" >
+    <mat-error><app-errors [errors]="nom"></app-errors>
+    </mat-error>
+  </mat-form-field>
+  </div>
+  <mat-form-field appearance="fill">
+    <mat-label>Prenom</mat-label>
+    <input matInput ngModel required minlength="3" name="prenom" #prenom="ngModel">
+    <mat-error><app-errors [errors]="prenom"></app-errors>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Role</mat-label>
+    <mat-select ngModel required name="role" #role="ngModel">
+      <mat-option value="Directeur">Directeur</mat-option>
+      <mat-option value="Administrateur">Administrateur</mat-option>
+    </mat-select>
+    <mat-error><app-errors [errors]="nom"></app-errors>
+    </mat-error>
+  </mat-form-field>
+  <div mat-dialog-actions [align]='"end"'>
+    <button mat-button color="primary" [disabled]="f.invalid" (click)="addUtilisateur(f.value,role.value)">Add</button>
+  </div>
+
+
+</form>

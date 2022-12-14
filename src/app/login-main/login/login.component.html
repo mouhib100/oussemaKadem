@@ -1,0 +1,42 @@
+<h1 class="title is-4">Login</h1>
+<p class="description">Welcome back to kaddem</p>
+<div class="alert alert-danger" role="alert" *ngIf="loginSuccess==false"> Username or password is incorrect !</div>
+<div class="alert alert-success" role="alert" *ngIf="loginSuccess==true"> Login Successful ! </div>
+
+<form (ngSubmit)="login()" [formGroup]="loginForm" novalidate autocomplete="false">
+  <div class="field">
+    <div class="control">
+
+      <input [ngClass]="{'is-danger': displayMessage.username}" class="input is-medium" placeholder="Username"
+        formControlName="username">
+      <p *ngIf="displayMessage.username" class="help is-danger">
+        {{ displayMessage.username }}
+      </p>
+    </div>
+  </div>
+  <div class="field">
+    <div class="control">
+      <input [ngClass]="{'is-danger': displayMessage.password}" class="input is-medium" type="password"
+        placeholder="Password" formControlName="password">
+      <p *ngIf="displayMessage.password" class="help is-danger">
+        {{ displayMessage.password }}
+      </p>
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="button is-block is-primary is-fullwidth is-medium" *ngIf="!loading"
+      style="background-color: #3f51b5!important;" [disabled]="loginForm.invalid ">Login</button>
+    <button type="submit" class="button is-block is-primary is-fullwidth is-medium,button is-loading" *ngIf="loading"
+      [disabled]="loginForm.invalid || loading">Login</button>
+  </div>
+  <br>
+  <small class="has-text-centered">
+    <ng-template #matspinner>
+      <mat-spinner></mat-spinner>
+    </ng-template>
+    <em style="font-size: large;">
+      Don't have an account?
+      <a [routerLink]="['/signup']">Sign Up</a>
+    </em>
+  </small>
+</form>

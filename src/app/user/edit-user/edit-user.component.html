@@ -1,0 +1,27 @@
+<form [formGroup]="editForm">
+  <mat-form-field appearance="fill">
+    <mat-label>ID</mat-label>
+    <input matInput formControlName="idUser">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Nom</mat-label>
+    <input matInput formControlName="nom">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Prenom</mat-label>
+    <input matInput formControlName="prenom">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>role</mat-label>
+    <mat-select formControlName="role">
+      <mat-option value="Etudiant" [disabled]="bool">Etudiant</mat-option>
+      <mat-option [disabled] ='!bool' value="Directeur">Directeur</mat-option>
+      <mat-option [disabled] = 'bool' value="ChefDeClasse">ChefDeClasse</mat-option>
+      <mat-option [disabled] ='!bool' value="Administrateur">Administrateur</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div mat-dialog-actions [align]='"end"'>
+    <button mat-button color="primary" (click)="EditUtilisateur()">Edit</button>
+  </div>
+</form>
+<app-errors ></app-errors>

@@ -1,0 +1,105 @@
+<!--<h1 mat-dialog-title>Add universite</h1>
+<div mat-dialog-content>
+  <form [formGroup]= "universiteForm">
+    <mat-form-field appearance="outline">
+      <mat-label>universite Name</mat-label>
+      <input formControlName="universiteName" matInput placeholder="Placeholder">
+    </mat-form-field>
+
+  </form>
+  <div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button mat-raised-button color="primary">add</button>
+  </div>
+</div>-->
+<form #f="ngForm">
+<ng-container>
+<mat-accordion class="example-headers-align">
+  <mat-expansion-panel ngModelGroup="step0" #step0="ngModelGroup" [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+    <mat-expansion-panel-header >
+      <mat-panel-title>
+        Personal data
+      </mat-panel-title>
+      <mat-panel-description>
+        Ecrire votre nom et prenom
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field appearance="fill">
+      <mat-label>First name</mat-label>
+      <input matInput ngModel required minlength="3" name="nom" #nom="ngModel">
+    </mat-form-field>
+
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput ngModel required minlength="3" name="prenom" #prenom="ngModel">
+    </mat-form-field>
+    <div id="wrapper">
+      <div class="alert alert-warning col-md-3 " id= "left" role="alert" *ngIf="nom.touched && nom.invalid">Veuillez inserer un nom </div>
+      <div class="alert alert-warning col-md-4 " id= "right" role="alert" *ngIf="prenom.touched && prenom.invalid">Veuillez inserer un prenom </div>
+    </div>
+      <mat-action-row>
+      <button mat-button color="primary" [disabled]="step0.invalid" (click)="nextStep()">Next</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel ngModelGroup="step1" #step1="ngModelGroup" [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Domaine
+      </mat-panel-title>
+      <mat-panel-description>
+        Choisir votre domaine
+        <mat-icon>map</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Domaine</mat-label>
+      <mat-select ngModel required name="domaine" #domaine="ngModel">
+        <mat-option value="SE">SE</mat-option>
+        <mat-option value="TWIN">TWIN</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="alert alert-warning col-md-4 " role="alert" *ngIf="domaine.untouched">Veuillez inserer un domaine </div>
+    <mat-action-row>
+      <button mat-button color="warn" (click)="prevStep()">Previous</button>
+      <button mat-button color="primary" [disabled]="step1.invalid" (click)="nextStep()">Next</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel ngModelGroup="step2" #step2="ngModelGroup" [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Departement
+      </mat-panel-title>
+      <mat-panel-description>
+        Choisir la departement
+        <mat-icon>date_range</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Departement</mat-label>
+      <mat-select ngModel required name="departement" #departement="ngModel">
+        <mat-option *ngFor="let d of tabd" [value]="d.idDepartement" >{{d.idDepartement}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="alert alert-warning col-md-4 " role="alert" *ngIf="departement.untouched">Veuillez inserer un domaine </div>
+    <mat-datepicker #picker></mat-datepicker>
+
+    <mat-action-row>
+      <button mat-button color="warn" (click)="prevStep()">Previous</button>
+      <button mat-button color="primary" [disabled]="step2.invalid" (click)="nextStep()">End</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+  <mat-action-row>
+    <button class="addbutton" mat-button color="primary" [disabled]="f.invalid" (click)="addEtudiant(step0.value,step1.value,step2.value,departement.value)" >Add</button>
+  </mat-action-row>
+</mat-accordion>
+</ng-container>
+</form>
+

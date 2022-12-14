@@ -1,0 +1,40 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+}
+.demo-button-container {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.example-button-container{
+  display: flex;
+  position: fixed;
+  right: 0;
+  margin:5%;
+  justify-content: flex-end;}
+
+
+th, td {
+  overflow: hidden;
+  width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+

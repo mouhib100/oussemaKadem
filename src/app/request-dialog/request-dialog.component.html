@@ -1,0 +1,22 @@
+<form [formGroup]="requestForm">
+  <mat-form-field appearance="fill">
+    <mat-label>domaine</mat-label>
+    <mat-select formControlName="domaine">
+      <mat-option value="TWIN">TWIN</mat-option>
+      <mat-option value ="SE">SE</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>departement</mat-label>
+    <mat-select formControlName="departement">
+      <mat-option *ngFor="let d of tabd"  [value]="d.idDepartement" >{{d.idDepartement}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+
+  <div mat-dialog-actions [align]='"end"'>
+    <button mat-button color="primary" (click)="AcceptEtudiant()">Accept</button>
+  </div>
+</form>

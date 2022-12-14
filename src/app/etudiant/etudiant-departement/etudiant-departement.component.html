@@ -1,0 +1,22 @@
+<div class="container">
+
+  <table class="table table-striped table-dark">
+    <thead>
+    <tr>
+      <th scope="col">IDEtudiant</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">Niveau</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let row of EtudiantsData">
+      <td>{{row.idUser}}</td>
+      <td>{{row.nom}}</td>
+      <td>{{row.prenom}}</td>
+      <td>{{row.domaine}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

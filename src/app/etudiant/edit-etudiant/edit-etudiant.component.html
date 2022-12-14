@@ -1,0 +1,33 @@
+<form [formGroup]="editForm">
+<mat-form-field appearance="fill">
+  <mat-label>ID</mat-label>
+  <input matInput formControlName="idUser">
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Nom</mat-label>
+  <input matInput formControlName="nom">
+</mat-form-field>
+  <div class="alert alert-warning col-md-17 "  role="alert" *ngIf="editForm.controls['nom'].touched && editForm.controls['nom'].invalid">Veuillez inserer un nom </div>
+  <mat-form-field appearance="fill">
+  <mat-label>Prenom</mat-label>
+  <input matInput formControlName="prenom">
+</mat-form-field>
+  <div class="alert alert-warning col-md-17 " role="alert" *ngIf="editForm.controls['prenom'].touched && editForm.controls['prenom'].invalid">Veuillez inserer un prenom </div>
+  <mat-form-field appearance="fill">
+    <mat-label>Domaine</mat-label>
+    <mat-select formControlName="domaine">
+      <mat-option value="SE">SE</mat-option>
+      <mat-option value="TWIN">TWIN</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+  <mat-label>departement</mat-label>
+  <mat-select formControlName="departement">
+    <mat-option *ngFor="let d of tabd"  [value]="d.idDepartement" >{{d.idDepartement}}</mat-option>
+  </mat-select>
+</mat-form-field>
+  <div mat-dialog-actions [align]='"end"'>
+<button mat-button color="primary" (click)="EditEtudiant()">Edit</button>
+</div>
+</form>

@@ -1,0 +1,65 @@
+<h1 class="title is-4">Sign Up (Only for Students)</h1>
+<p class="description">Let's get started!</p>
+<div class="alert alert-danger" role="alert" *ngIf="success==false"> Username Existing !</div>
+<div class="alert alert-success" role="alert" *ngIf="success==true"> Register Successful !</div>
+<form (ngSubmit)="signup()" [formGroup]="signupForm" novalidate autocomplete="false">
+
+  <div class="field">
+    <div class="control">
+      <input [ngClass]="{'is-danger': displayMessage.prenom}" formControlName="prenom" class="input is-medium"
+        type="text" placeholder="First Name">
+      <p *ngIf="displayMessage.prenom" class="help is-danger">
+        {{ displayMessage.nom }}
+      </p>
+    </div>
+  </div>
+  <div class="field">
+    <div class="control">
+      <input [ngClass]="{'is-danger': displayMessage.nom}" formControlName="nom" class="input is-medium" type="text"
+        placeholder="Last Name">
+      <p *ngIf="displayMessage.nom" class="help is-danger">
+        {{ displayMessage.nom }}
+      </p>
+    </div>
+  </div>
+  <div class="field">
+    <div class="control">
+      <input [ngClass]="{'is-danger': displayMessage.username}" formControlName="username" class="input is-medium"
+        placeholder="Username">
+      <p *ngIf="displayMessage.username" class="help is-danger">
+        {{ displayMessage.username }}
+      </p>
+    </div>
+  </div>
+  <div class="field">
+    <div class="control">
+      <input [ngClass]="{'is-danger': displayMessage.password || displayMessage.confirmPassword }"
+        formControlName="password" class="input is-medium" type="password" placeholder="Password">
+      <p *ngIf="displayMessage.password" class="help is-danger">
+        {{ displayMessage.password }}
+      </p>
+    </div>
+  </div>
+  <div class="field">
+    <div class="control">
+      <input [ngClass]="{'is-danger': displayMessage.confirmPassword}" formControlName="confirmPassword"
+        class="input is-medium" type="password" placeholder="Confirm Password">
+      <p *ngIf="displayMessage.confirmPassword" class="help is-danger">
+        {{ displayMessage.confirmPassword }}
+      </p>
+    </div>
+  </div>
+  <br>
+  <button type="submit" class="button is-block is-primary is-fullwidth is-medium" *ngIf="!loading"
+    [disabled]="signupForm.invalid " style="background-color: #3f51b5!important;">Submit</button>
+  <button type="submit" class="button is-block is-primary is-fullwidth is-medium,button is-loading" *ngIf="loading"
+    [disabled]="signupForm.invalid || loading">Submit</button>
+  <br>
+  <small class="has-text-centered" style="font-size: large;">
+    <em>
+      Already have an account
+      <a [routerLink]="['/login']" class="primary-color" style="color: #3f51b5!important;">Login</a>
+    </em>
+  </small>
+
+</form>
